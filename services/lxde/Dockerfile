@@ -1,12 +1,6 @@
-FROM metabox/webvnc
+FROM metabox/twm
 MAINTAINER Stefano Alberto Russo <stefano.russo@gmail.com>
 # Thanks to Doro Wu <fcwu.tw@gmail.com>
-
-# Install base packages for VNC server and headless desktop
-RUN apt-get install x11vnc xvfb -y
-
-ENV DEBIAN_FRONTEND noninteractive
-ENV HOME /home/metabox
 
 # Install Lxde 
 RUN apt-get install -y --force-yes --no-install-recommends \
@@ -21,11 +15,9 @@ RUN apt-get install -y --force-yes --no-install-recommends \
 COPY home_metabox_.gtkrc-2.0 /home/metabox/.gtkrc-2.0
 RUN rm /usr/share/lxpanel/images/background.png
 
-# Setup supervisord
-COPY supervisord_lxde.conf /etc/supervisor/conf.d/
-
-# Prestartup
-COPY prestartup_lxde.sh /prestartup/
+# Replace xstartup with version that uses Xfce as Window Manager
+COPY home_metabox_.xstartup /home/metabox/.xstartup
+RUN chown -R metabox:metabox /home/metabox/ && chmod 755 /home/metabox/.xstartup
 
 #EXPOSE_AS   80, 8591
 #EXPOSE_AS 5900, 5901
