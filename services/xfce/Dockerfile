@@ -1,4 +1,4 @@
-FROM metabox/twm
+FROM metabox/vnc
 MAINTAINER Stefano Alberto Russo <stefano.russo@gmail.com>
 
 # Install Xfce (Forcing avoids problems like "10" owners/error: "shared/packages-wordlist doesn't exist")
@@ -11,5 +11,4 @@ RUN chmod 755 /opt/tigervnc/xstartup
 # Prestartup
 COPY prestartup_xfce.sh /prestartup/
 
-#EXPOSE_AS   80, 8590
-#EXPOSE_AS 5900, 5900
+EXPOSE 8590 5900

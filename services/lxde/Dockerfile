@@ -1,4 +1,4 @@
-FROM metabox/twm
+FROM metabox/vnc
 MAINTAINER Stefano Alberto Russo <stefano.russo@gmail.com>
 # Thanks to Doro Wu <fcwu.tw@gmail.com>
 
@@ -19,6 +19,5 @@ RUN rm /usr/share/lxpanel/images/background.png
 COPY xstartup /opt/tigervnc/
 RUN chmod 755 /opt/tigervnc/xstartup
 
-#EXPOSE_AS   80, 8591
-#EXPOSE_AS 5900, 5901
+EXPOSE 8590 5900
 
