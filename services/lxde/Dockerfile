@@ -15,9 +15,9 @@ RUN apt-get install -y --force-yes --no-install-recommends \
 COPY home_metabox_.gtkrc-2.0 /home/metabox/.gtkrc-2.0
 RUN rm /usr/share/lxpanel/images/background.png
 
-# Replace xstartup with version that uses Xfce as Window Manager
-COPY home_metabox_.xstartup /home/metabox/.xstartup
-RUN chown -R metabox:metabox /home/metabox/ && chmod 755 /home/metabox/.xstartup
+# Replace X startup with version that uses Xfce as Window Manager
+COPY xstartup /opt/tigervnc/
+RUN chmod 755 /opt/tigervnc/xstartup
 
 #EXPOSE_AS   80, 8591
 #EXPOSE_AS 5900, 5901

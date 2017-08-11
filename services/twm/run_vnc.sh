@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Exec TigerVNC server
-/opt/tigervnc-1.8.0.x86_64/usr/bin/vncserver :0 -SecurityTypes None -xstartup /home/metabox/.xstartup
+/opt/tigervnc/usr/bin/vncserver :0 -SecurityTypes None -xstartup /opt/tigervnc/xstartup
 
 # Check it is running and if no, exit
 while true
 do
 
-    PSOUT=$(ps -ef | grep /opt/tigervnc-1.8.0.x86_64/usr/bin/Xvnc | grep SecurityTypes) 
+    PSOUT=$(ps -ef | grep /opt/tigervnc/usr/bin/Xvnc | grep SecurityTypes) 
 
     if [[ "x$PSOUT" == "x" ]] ; then
         exit 1
