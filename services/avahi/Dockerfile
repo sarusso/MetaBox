@@ -12,5 +12,7 @@ COPY avahi-daemon.conf /etc/avahi/avahi-daemon.conf
 # Setup supervisord
 COPY supervisord_avahi.conf /etc/supervisor/conf.d/
 
+# Disable ssh as this image will be run in "net host" mode
+RUN mv /etc/supervisor/conf.d/supervisord_sshd.conf /etc/supervisor/conf.d/supervisord_sshd.conf_disbaled
 
 #UDPEXPOSE 5353
