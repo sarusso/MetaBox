@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Get current folder name
+FOLDER=${PWD##*/}
+
+# Check we are in the right place
+if [ ! -f ./.JRCyC8oOiO.metabox ]; then
+    echo "You cannot run this script form here, please run it in MetaBox's root folder."
+    exit 1
+fi
+
+if [[ $# -eq 0 ]] ; then
+    reyns ps
+else
+    reyns ps:$@
+fi
