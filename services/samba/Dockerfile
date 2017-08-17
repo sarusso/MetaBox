@@ -8,9 +8,8 @@ RUN apt-get install -y samba
 # Copy conf
 COPY smb.conf /etc/samba/smb.conf 
 
-# Create samba users
-RUN (echo reyns; echo reyns) | smbpasswd -a reyns # Linux user MUST exists!
-RUN (echo media; echo media) | smbpasswd -a media # Linux user MUST exists!
+# Create samba users. Linux user MUST exists!
+RUN (echo M3tab0x!; echo M3tab0x!) | smbpasswd -a metabox
 
 
 # Setup supervisord
