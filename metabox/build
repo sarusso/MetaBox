@@ -10,7 +10,7 @@ if [ ! -f ./.JRCyC8oOiO.metabox ]; then
 fi
 
 if [[ $# -eq 0 ]] ; then
-    reyns build:all
+    reyns build
 else
     reyns build:$@
 fi

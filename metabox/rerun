@@ -10,8 +10,8 @@ if [ ! -f ./.JRCyC8oOiO.metabox ]; then
 fi
 
 if [[ $# -eq 0 ]] ; then
-    reyns run
+    reyns rerun
 else
-    reyns run:$@
+    reyns rerun:$@
 fi
 
