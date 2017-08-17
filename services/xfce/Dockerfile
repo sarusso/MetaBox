@@ -11,4 +11,8 @@ RUN chmod 755 /opt/tigervnc/xstartup
 # Prestartup
 COPY prestartup_xfce.sh /prestartup/
 
+# Default conf (mostly eyecandy)
+COPY home_metabox_.config /home/metabox/.config
+RUN chown -R metabox:metabox /home/metabox/.config
+
 EXPOSE 8590 5900
