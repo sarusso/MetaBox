@@ -7,8 +7,8 @@ fi
 
 # If user does not exists, fallback to metabox user
 if [[ "x$(id -u $VNC_USER)" == "x" ]] ; then
-	echo "WARNING: user \"$VNC_USER\" does not exist, falling back on \"metabox\" user"
-    VNC_USER=metabox
+	echo "WARNING: user \"$VNC_USER\" does not exist, falling back on \"metauser\" user"
+    VNC_USER=metauser
 fi
 
 echo "VNC_USER: $VNC_USER"

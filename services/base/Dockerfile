@@ -1,6 +1,10 @@
 FROM reyns/reyns-base-ubuntu14.04
 MAINTAINER Stefano Alberto Russo <stefano.russo@gmail.com>
 
+# Get User ID of the user that is building MetaBox. Reyns set it automatically.
+ARG BUILDING_UID
+RUN if [ -z "$BUILDING_UID" ]; then echo "Error: BUILDING_UID is not set. Are you bulding with Reyns?"; exit 1; else : ; fi
+
 # Update apt here so if the prject is build without cache we get a refresh
 RUN apt-get update
 
@@ -12,12 +16,19 @@ RUN useradd media -d /media -u 65528 -g 65528 -m -s /bin/bash
 # Add the media user to the www-data group (to allow access to certain folders from web)
 #RUN usermod -a -G www-data media
 
-# Create your users here. You can just keep the metabox user, change it, or add your entire family.
-RUN useradd metabox -m -s /bin/bash     # UID=1001
-#RUN useradd anotheruser -m -s /bin/bash     # UID=1002
+# Create base matauser user. We assign the same UID as the user who is building MetaBox to minimize permissions problems.
+RUN useradd metauser -m -u $BUILDING_UID -s /bin/bash
 
-# Add user metabox to sudo
-RUN adduser metabox sudo
+# Create other users here. You can just keep the metauser user, change it above, or add your entire family.
+#RUN useradd anotheruser1 -m -s /bin/bash # UID=1000 (if not taken)
+#RUN useradd anotheruser2 -m -s /bin/bash # UID=1001 (if not taken)
 
-# Note 1: if you use the Samba service, you need to add the users even there.
-# Note 2: vnc desktops still do not support multiuser.
+# Add user metauser to sudo
+RUN adduser metauser sudo
+
+# Prestartup
+COPY prestartup_base.sh /prestartup/
+
+# Note 1: If you use the Samba service, you need to achange/dd the users even there.
+# Note 2: If you use the Vnc desktop service, you need to change/add the users even there.
+# Note 3: Vnc desktop still do not support multiuser.

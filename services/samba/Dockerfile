@@ -9,7 +9,7 @@ RUN apt-get install -y samba
 COPY smb.conf /etc/samba/smb.conf 
 
 # Create samba users. Linux user MUST exists!
-RUN (echo M3tab0x!; echo M3tab0x!) | smbpasswd -a metabox
+RUN (echo metapass; echo metapass) | smbpasswd -a metauser
 
 
 # Setup supervisord
