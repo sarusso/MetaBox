@@ -23,7 +23,7 @@ Default password for Proxy and Samba services: "metapass". Change them!! User is
 For Proxy (with "proxy" service running):
 
     $ metabox/ssh proxy
-    $ cd /data && sudo htpasswd -bc htpasswd metabox yourpass
+    $ cd /data && sudo htpasswd -bc htpasswd metauser yourpass
     $ exit
     $ metabox/rerun proxy
 
