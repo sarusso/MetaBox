@@ -36,5 +36,5 @@ For Samba (with "samba" service running):
 
 ## Stop
 
-    $ metabox/stop all
+    $ metabox/clean all
 
