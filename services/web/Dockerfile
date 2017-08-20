@@ -35,6 +35,9 @@ COPY 000-default.conf /etc/apache2/sites-available/
 # The following is not really necessary as defaults are ok (it is the original file)
 COPY default-ssl.conf /etc/apache2/sites-available/
 
+# Listen also on port 8088
+RUN echo "listen 8088" >> /etc/apache2/ports.conf
+
 # Web user/pass
 RUN cd /data && htpasswd -bc htpasswd metauser metapass #Set password metapass for user metauser
 RUN ln -s /data/htpasswd /etc/apache2/htpasswd
@@ -42,4 +45,4 @@ RUN ln -s /data/htpasswd /etc/apache2/htpasswd
 # Prestartup
 COPY prestartup_proxy.sh /prestartup/
 
-EXPOSE 80 443
+EXPOSE 80 443 8088
