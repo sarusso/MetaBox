@@ -5,7 +5,7 @@ if [ -d /shared ]; then
     # Check if no one initialized the shared folder for metauser
     if [ ! -d /shared/metauser ]; then
         mkdir /shared/metauser
-        chown metauser:metauser /shared_data/metauser
+        chown metauser:metauser /shared/metauser
     fi
 
     # Check if there is no Data link in metauser home folder
