@@ -1,10 +1,6 @@
 FROM reyns/reyns-base-ubuntu14.04
 MAINTAINER Stefano Alberto Russo <stefano.russo@gmail.com>
 
-# Get User ID of the user that is building MetaBox. Reyns set it automatically.
-ARG BUILDING_UID
-RUN if [ -z "$BUILDING_UID" ]; then echo "Error: BUILDING_UID is not set. Are you bulding with Reyns?"; exit 1; else : ; fi
-
 # Update apt here so if the prject is build without cache we get a refresh
 RUN apt-get update
 
@@ -17,11 +13,11 @@ RUN useradd media -d /media -u 65528 -g 65528 -m -s /bin/bash
 #RUN usermod -a -G www-data media
 
 # Create base matauser user. We assign the same UID as the user who is building MetaBox to minimize permissions problems.
-RUN useradd metauser -m -u $BUILDING_UID -s /bin/bash
+RUN useradd metauser -m -s /bin/bash # UID=1000 (if not taken)
 
 # Create other users here. You can just keep the metauser user, change it above, or add your entire family.
-#RUN useradd anotheruser1 -m -s /bin/bash # UID=1000 (if not taken)
-#RUN useradd anotheruser2 -m -s /bin/bash # UID=1001 (if not taken)
+#RUN useradd anotheruser1 -m -s /bin/bash # UID=1001 (if not taken)
+#RUN useradd anotheruser2 -m -s /bin/bash # UID=1002 (if not taken)
 
 # Add user metauser to sudo
 RUN adduser metauser sudo
