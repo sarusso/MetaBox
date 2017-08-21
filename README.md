@@ -3,9 +3,9 @@ A collection of plug-and-play services for your Box
 
 ## Reuirements
 
-For building MetaBox, you need Docker, Git, Python and Bash, plus Internet connectivity.
+To build MetaBox, you need Docker, Git, Python and Bash, plus Internet connectivity.
 
-For accessing the services, the requirements change from service to service. In general, a modern (post 2014) OS and Web browser should work. (Note: Safari with Web remote Desktop over https does not work due to a limitation is Safari itself)
+To access its services, the requirements change from service to service. In general, a modern (post 2014) OS and Web browser should work. (Note: Safari with Web Remote Desktop over https does not work due to a limitation is Safari itself)
 
 If you make exstensive use or local or remote MetaBox Desktop, you might want to try the native MetaBox Desktop App (for Windows, Mac and Linux).
 
@@ -22,7 +22,7 @@ If you make exstensive use or local or remote MetaBox Desktop, you might want to
 
 * Zeroconf: provides zero configuration for services discovery when running on a LAN network or VPN. An exampe is to see the "Metabox" server in OSX Finer sidebar.
 
-* Vpn: provides access to the host tought Hamachi VPN service. Requires creating an accoung on Hamachi's website. Read more below.
+* Vpn: provides access to the host through Hamachi VPN service. Requires creating an accoung on Hamachi's website. Read more below.
 
 
 ## Build
@@ -37,6 +37,11 @@ If you make exstensive use or local or remote MetaBox Desktop, you might want to
 ## List
 
     $ metabox/run ps
+
+## Shell
+
+    $ metabox/shell service_name (user automatically set to metauser)
+
 
 ## Ssh
 
@@ -68,11 +73,11 @@ For Files (with "files" service running):
 
 ## Setting up VPN
 
-MetaBox To provide VPN access MetaBox uses Hamachi, which even if requires a third-party intermediary (their servers), the setup is extremely simplified. Moreover, once established, the connection is directly tunneled to your MetaBox host in the majority of the cases even across Firewalls and NATs.
+MetaBox uses Hamachi to provide VPN access which, even if requires a third-party intermediary (their servers), provides an extremely simplified setup process. Moreover, once established, the connection is directly tunneled to your MetaBox host in the majority of the cases, even across Firewalls and NATs.
 
 To set it up, first you need to go on http://vpn.net (Hamachi's website) and signup for a free account. Then you need to create a new netowrk. We suggest type "mesh", without password, and to require memeber approval. Copy the network ID (in the format xxx-yyy-zzz). Then:
 
-    $ metabox/ssh vpn
+    $ metabox/shell vpn
     $ sudo su
     $ hamachi login
     $ hamachi  # Will show status
