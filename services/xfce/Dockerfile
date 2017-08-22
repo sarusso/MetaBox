@@ -18,4 +18,5 @@ COPY prestartup_xfce.sh /prestartup/
 COPY home_metauser_.config /home/metauser/.config
 RUN chown -R metauser:metauser /home/metauser/.config
 
-EXPOSE 8590 5900
+# reyns: expose 8590/tcp
+# reyns: expose 5900/tcp

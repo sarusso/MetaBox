@@ -14,4 +14,4 @@ COPY supervisord_webvnc.conf /etc/supervisor/conf.d/
 # Prestartup
 COPY prestartup_webvnc.sh /prestartup/
 
-#EXPOSE_AS 80, 8590
+# reyns: expose 8590/tcp

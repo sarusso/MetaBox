@@ -19,5 +19,6 @@ RUN rm /usr/share/lxpanel/images/background.png
 COPY xstartup /opt/tigervnc/
 RUN chmod 755 /opt/tigervnc/xstartup
 
-EXPOSE 8590 5900
+# reyns: expose 8590/tcp
+# reyns: expose 5900/tcp
 

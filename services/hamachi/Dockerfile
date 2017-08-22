@@ -18,4 +18,4 @@ COPY prestartup_hamachi.sh /prestartup/
 # Disable ssh as this image will be run in "net host" mode
 RUN mv /etc/supervisor/conf.d/supervisord_sshd.conf /etc/supervisor/conf.d/supervisord_sshd.conf_disbaled
 
-#UDPEXPOSE 5353
+# reyns: privileged

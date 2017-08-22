@@ -45,4 +45,6 @@ RUN ln -s /data/htpasswd /etc/apache2/htpasswd
 # Prestartup
 COPY prestartup_proxy.sh /prestartup/
 
-EXPOSE 80 443 8088
+# reyns: expose 80/tcp
+# reyns: expose 443/tcp
+# reyns: expose 8088/tcp
