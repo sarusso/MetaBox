@@ -7,7 +7,7 @@ To build MetaBox, you need Docker, Git, Python and Bash, plus Internet connectiv
 
 To access its services, the requirements change from service to service. In general, a modern (post 2014) OS and Web browser should work. (Note: Safari with Web Remote Desktop over https does not work due to a limitation is Safari itself)
 
-If you make exstensive use or local or remote MetaBox Desktop, you might want to try the native MetaBox Desktop App (for Windows, Mac and Linux).
+If you make extensive use or local or remote MetaBox Desktop, you might want to try the native MetaBox Desktop App (for Windows, Mac and Linux).
 
 
 
@@ -22,7 +22,7 @@ If you make exstensive use or local or remote MetaBox Desktop, you might want to
 
 * Zeroconf: provides zero configuration for services discovery when running on a LAN network or VPN. An exampe is to see the "Metabox" server in OSX Finer sidebar.
 
-* Vpn: provides access to the host through Hamachi VPN service. Requires creating an accoung on Hamachi's website. Read more below.
+* Vpn: provides access to the host through Hamachi VPN service. Requires creating an account on Hamachi's website. Read more below.
 
 
 ## Build
@@ -75,7 +75,7 @@ For Files (with "files" service running):
 
 MetaBox uses Hamachi to provide VPN access which, even if requires a third-party intermediary (their servers), provides an extremely simplified setup process. Moreover, once established, the connection is directly tunneled to your MetaBox host in the majority of the cases, even across Firewalls and NATs.
 
-To set it up, first you need to go on http://vpn.net (Hamachi's website) and signup for a free account. Then you need to create a new netowrk. We suggest type "mesh", without password, and to require memeber approval. Copy the network ID (in the format xxx-yyy-zzz). Then:
+To set it up, first you need to go on http://vpn.net (Hamachi's website) and signup for a free account. Then you need to create a new network. We suggest type "mesh", without password, and to require members approval. Copy the network ID (in the format xxx-yyy-zzz, if you already created the network you can find it under the "Members" section). Then:
 
     $ metabox/shell vpn
     $ sudo su
@@ -89,7 +89,7 @@ Now, on vpn.net, accept the new join request you will see. Then:
     $ exit
     $ exit
 
-The final step is to install the Hamachi client for tour laptop and join the network from thre as well. Your MetaBox will be assigned a static private IP, which will never change (unless you delete MetaBox's data folder).
+The final step is to install the Hamachi client for tour laptop and join the network from there as well. Your MetaBox will be assigned a static private IP, which will never change (unless you delete MetaBox's data folder).
 
 
 
