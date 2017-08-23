@@ -16,5 +16,5 @@ RUN (echo metapass; echo metapass) | smbpasswd -a metauser
 COPY supervisord_smbd.conf /etc/supervisor/conf.d/
 COPY supervisord_nmbd.conf /etc/supervisor/conf.d/
 
-EXPOSE 445 
+# reyns: expose 455/tcp
 
