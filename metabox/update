@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Get current folder name
+FOLDER=${PWD##*/}
+
+# Check we are in the right place
+if [ ! -f ./.JRCyC8oOiO.metabox ]; then
+    echo "You cannot run this script form here, please run it in MetaBox's root folder."
+    exit 1
+fi
+
+
+PRE_PULL_HASH=$(git rev-parse --short HEAD)
+
+if [[ $# -eq 0 ]] ; then
+    echo "This version hash is: \"$PRE_PULL_HASH\"."
+    echo "I will now check for an update and, if found, I will rebuild metabox."
+    echo "If you don't like the new version, you can revert to this one by running \"metabox/update $PRE_PULL_HASH\""
+else
+    echo "This version hash is: \"$PRE_PULL_HASH\"."
+    echo "I will now try to switch to version hash \"$1\" and, if found, I will rebuild metabox."
+fi
+
+
+read -p "Do you want to proceed? (y/n)?" choice
+case "$choice" in 
+  y|Y ) printf "\nWorking...\n";;
+  * ) exit 0;;
+esac
+
+
+if [[ $# -eq 0 ]] ; then
+    git checkout master && git pull
+else
+    git -c advice.detachedHead=false checkout $@
+fi
+
+
+POST_PULL_HASH=$(git rev-parse --short HEAD)
+
+if [ "x$PRE_PULL_HASH" != "x$POST_PULL_HASH" ]; then
+    metabox/build all
+    echo "Now rerun MetaBox with \"metabox/clean all\" and \"metabox/run all\"."
+fi
