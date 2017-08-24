@@ -35,6 +35,9 @@ COPY 000-default.conf /etc/apache2/sites-available/
 # The following is not really necessary as defaults are ok (it is the original file)
 COPY default-ssl.conf /etc/apache2/sites-available/
 
+# Copy index
+COPY index.html /var/www/html/
+
 # Listen also on port 8088
 RUN echo "listen 8088" >> /etc/apache2/ports.conf
 
