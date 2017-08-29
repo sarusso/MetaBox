@@ -52,6 +52,12 @@ If you make extensive use or local or remote MetaBox Desktop, you might want to 
 
     $ metabox/clean all
 
+## Update
+
+    $ metabox/update
+
+Note: you will be always able to revert to a specific verion. Just note down the version hash.
+
 ## Authentication
 
 Default user is metauser. Default password for Web and Files services: "metapass". Change it!!
@@ -91,7 +97,9 @@ Now, on vpn.net, accept the new join request you will see. Then:
 
 The final step is to install the Hamachi client for tour laptop and join the network from there as well. Your MetaBox will be assigned a static private IP, which will never change (unless you delete MetaBox's data folder).
 
+
 ## Customizing services
+
 you can easily customize services, by several different ways. While they almost all require a certain degree of confidence with forking Git repositories and using some Reyns (MetabBox's oorechstrator) advanced feature, there is a extremy simple and starightforward way.
 
 Let's say that you want to customize the desktop service for example, by installing some libraries. You just nedd to copy the "desktop" folder in the "services" directory and name it "desktop_custom". Note that while the "_" is forbidden in MetaBox and Reyn's service names, in this case it is allowed as the servoice will still be named (and referenced to as) "desktop". In MetaBox's root folder just run:
@@ -116,7 +124,12 @@ You can also create a symbolic link to somwhere else, and in particular to a fol
     $ mv services/desktop_custom /path/to/your/versioned/folder/desktop_custom
 	$ ln -s /path/to/your/versioned/folder/desktop_custom services/desktop_custom
 
-We strongly encourage you to always version your services or at leas to store them a service like Dropbox which does provide minimal version control. 
+We strongly encourage you to always version your services or at leas to store them a service like Dropbox which does provide minimal version control.
+
+
+## Updating metabox
+
+
 
 
 
