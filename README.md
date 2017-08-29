@@ -91,5 +91,53 @@ Now, on vpn.net, accept the new join request you will see. Then:
 
 The final step is to install the Hamachi client for tour laptop and join the network from there as well. Your MetaBox will be assigned a static private IP, which will never change (unless you delete MetaBox's data folder).
 
+## Customizing services
+you can easily customize services, by several different ways. While they almost all require a certain degree of confidence with forking Git repositories and using some Reyns (MetabBox's oorechstrator) advanced feature, there is a extremy simple and starightforward way.
+
+Let's say that you want to customize the desktop service for example, by installing some libraries. You just nedd to copy the "desktop" folder in the "services" directory and name it "desktop_custom". Note that while the "_" is forbidden in MetaBox and Reyn's service names, in this case it is allowed as the servoice will still be named (and referenced to as) "desktop". In MetaBox's root folder just run:
+
+    $ cp -a services/desktop services/desktop_custom
+
+This will not interfere with MetaBox update system, as custom versions of services are not treated as part of MetaBox.
+
+You can now edit the "Dockerfile" inside the "desktop_custom" folder and for example add a new library:
+
+    RUN apt-get -y install yourlibrary 
+
+...and you will still run and build it as the "desktop" service, i.e.:
+
+    $ metabox/build all # Will include it in the build process
+    $ metabox/run all # Will run it instead of the original desktop one
+    $ metabox/build desktop # Will build it
+    $ metabox/run desktop,metauser # Will run it of the original desktop one
+
+You can also create a symbolic link to somwhere else, and in particular to a folder under version control (like Git) repository. So after the above copy command, you can do somethig like the following (always in In MetaBox's root folder):
+
+    $ mv services/desktop_custom /path/to/your/versioned/folder/desktop_custom
+	$ ln -s /path/to/your/versioned/folder/desktop_custom services/desktop_custom
+
+We strongly encourage you to always version your services or at leas to store them a service like Dropbox which does provide minimal version control. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
