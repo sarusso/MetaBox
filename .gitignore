@@ -3,4 +3,4 @@ data_*
 .pydevproject
 host.conf
 .DS_Store
-
+services/*_custom
