@@ -1,13 +1,12 @@
 # MetaBox
 A collection of plug-and-play services for your Box
 
-## Reuirements
+## Requirements
 
 To build MetaBox, you need Docker, Git, Python and Bash, plus Internet connectivity.
 
 To access its services, the requirements change from service to service. In general, a modern (post 2014) OS and Web browser should work. (Note: Safari with Web Remote Desktop over https does not work due to a limitation is Safari itself)
 
-If you make extensive use or local or remote MetaBox Desktop, you might want to try the native MetaBox Desktop App (for Windows, Mac and Linux).
 
 
 
@@ -24,6 +23,10 @@ If you make extensive use or local or remote MetaBox Desktop, you might want to 
 
 * Vpn: provides access to the host through Hamachi VPN service. Requires creating an account on Hamachi's website. Read more below.
 
+
+## Setup
+
+    $ metabox/setup
 
 ## Build
 

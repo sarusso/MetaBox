@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Get current folder name
+FOLDER=${PWD##*/}
+
+# Check we are in the right place
+if [ ! -f ./.JRCyC8oOiO.metabox ]; then
+    echo "You cannot run this script form here, please run it in MetaBox's root folder."
+    exit 1
+fi
+
+if hash git 2>/dev/null; then
+    echo "[OK] Git found"
+else
+    echo "[ERROR] Git is missing" 
+    exit 1
+fi
+
+REYNS_COMMIT_HASH=93bde367518ce77490e1f1d7850afdbad8cf562d
+
+if [ ! -d Reyns ]; then
+    echo "Installing Reyns..."
+    git clone https://github.com/sarusso/Reyns.git
+    cd Reyns
+    git checkout $REYNS_COMMIT_HASH
+    cd ..
+else
+    echo "Checking Reyns version..."
+    cd Reyns
+    commit=$(git log -n1 | head -n1 | cut -d ' ' -f2)
+	if [ "x$commit" != "x$REYNS_COMMIT_HASH" ]; then
+	    echo "This MetaBox version requires a different Reyns version. Updating Reyns..."
+	    git pull
+	    git checkout $REYNS_COMMIT_HASH
+	    echo ""
+	    echo "Done. In case of error try rebuilding everything without cache (metabox/build all,cache=False)"
+	fi
+	cd ..
+fi
+
+
+echo ""
+echo "Done"
