@@ -13,5 +13,5 @@ if [[ $# -eq 0 ]] ; then
     echo "You must specify a service or service,instance."
     exit 1
 else
-    reyns ssh:$@,command="sudo -i -u metauser bash"
+    Reyns/reyns ssh:$@,command="sudo -i -u metauser bash"
 fi

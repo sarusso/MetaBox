@@ -14,7 +14,7 @@ PRE_PULL_HASH=$(git rev-parse --short HEAD)
 
 if [[ $# -eq 0 ]] ; then
     echo "This version hash is: \"$PRE_PULL_HASH\"."
-    echo "I will now check for an update and, if found, I will rebuild metabox."
+    echo "I will now check for an update and, if found, I will rebuild MetaBox."
     echo "If you don't like the new version, you can revert to this one by running \"metabox/update $PRE_PULL_HASH\""
 else
     echo "This version hash is: \"$PRE_PULL_HASH\"."
@@ -40,5 +40,6 @@ POST_PULL_HASH=$(git rev-parse --short HEAD)
 
 if [ "x$PRE_PULL_HASH" != "x$POST_PULL_HASH" ]; then
     metabox/build all
+    metabox/setup
     echo "Now rerun MetaBox with \"metabox/clean all\" and \"metabox/run all\"."
 fi
