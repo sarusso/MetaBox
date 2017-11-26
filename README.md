@@ -16,7 +16,7 @@ If you make extensive use or local or remote MetaBox Desktop, you might want to 
 * Desktop: a Xfce desktop plus VNC and web-based VNC.
 
 
-* Web: web services, including access to Desktop's web-based VNC. Access it via http://localhost or http://
+* Web: web services, including access to Desktop's web-based VNC. Access it via http://localhost or http://ip_address (redirects automatically to secure connection over https)
 
 * Files: provides access for files in the "Data" folder of metauser hoem directory trough Samba (Windows File Sharing protocol).
 
@@ -128,29 +128,11 @@ We strongly encourage you to always version your services or at leas to store th
 
 
 ## Updating metabox
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ You can update (or downgrade!) using the metabox/update command. Example:
+ 
+    $ metabox/update 
+    This version hash is: "787d974".
+    I will now check for an update and, if found, I will rebuild MetaBox.
+    If you don't like the new version, you can revert to this one by running "metabox/update 787d974"
+    Do you want to proceed? (y/n)?
 
