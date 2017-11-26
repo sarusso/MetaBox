@@ -7,19 +7,17 @@ To build MetaBox, you need Docker, Git, Python and Bash, plus Internet connectiv
 
 To access its services, the requirements change from service to service. In general, a modern (post 2014) OS and Web browser should work. (Note: Safari with Web Remote Desktop over https does not work due to a limitation is Safari itself)
 
-
-
+This version is based on Ubuntu 14.04
 
 ## Services
 
 * Desktop: a Xfce desktop plus VNC and web-based VNC.
 
-
 * Web: web services, including access to Desktop's web-based VNC. Access it via http://localhost or http://ip_address (redirects automatically to secure connection over https)
 
-* Files: provides access for files in the "Data" folder of metauser hoem directory trough Samba (Windows File Sharing protocol).
+* Files: provides access for files in the "Data" folder of metauser home directory trough Samba (Windows File Sharing protocol).
 
-* Zeroconf: provides zero configuration for services discovery when running on a LAN network or VPN. An exampe is to see the "Metabox" server in OSX Finer sidebar.
+* Zeroconf: provides zero configuration for services discovery when running on a LAN network or VPN. For example this allows to see the "Metabox" server in macOS Finder sidebar.
 
 * Vpn: provides access to the host through Hamachi VPN service. Requires creating an account on Hamachi's website. Read more below.
 
