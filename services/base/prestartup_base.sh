@@ -3,7 +3,9 @@
 if [ -d /shared ]; then
 
     # Check if no one initialized the shared folder for metauser
-    if [ ! -d /shared/metauser ]; then
+    if [[ -d /shared/metauser || -L /shared/metauser  ]]; then
+        :
+    else
         mkdir /shared/metauser
         chown metauser:metauser /shared/metauser
     fi
@@ -14,10 +16,10 @@ if [ -d /shared ]; then
     fi
 
 else
-    
+
     # If there is no shared data but link is present, remove it to avoid confusion.
     if [ -e /home/metauser/Data ]; then
         rm /home/metauser/Data
     fi
- 
+
 fi
