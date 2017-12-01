@@ -9,12 +9,30 @@ if [ ! -f ./.JRCyC8oOiO.metabox ]; then
     exit 1
 fi
 
+echo ""
+
 if hash git 2>/dev/null; then
     echo "[OK] Git found"
 else
     echo "[ERROR] Git is missing" 
     exit 1
 fi
+
+if hash docker 2>/dev/null; then
+    echo "[OK] Docker found"
+else
+    echo "[ERROR] Docker is missing" 
+    exit 1
+fi
+
+if hash ssh-keygen 2>/dev/null; then
+    echo "[OK] Ssh keygen found"
+else
+    echo "[ERROR] Ssh keygen is missing" 
+    exit 1
+fi
+
+echo ""
 
 REYNS_COMMIT_HASH=93bde367518ce77490e1f1d7850afdbad8cf562d
 
@@ -34,10 +52,19 @@ else
 	    git checkout $REYNS_COMMIT_HASH
 	    echo ""
 	    echo "Done. In case of error try rebuilding everything without cache (metabox/build all,cache=False)"
+    else
+        echo "Reyns is already the required version."
 	fi
 	cd ..
 fi
 
+
+
+if [ ! -d services/base/keys ]; then
+    echo "Generating ssh keys for user metauser":
+    mkdir -p services/base/keys
+    ssh-keygen -t rsa -N '' -f services/base/keys/metauser.rsa
+fi
 
 echo ""
 echo "Done"

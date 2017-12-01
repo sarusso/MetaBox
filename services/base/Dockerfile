@@ -25,6 +25,13 @@ RUN adduser metauser sudo
 # Prestartup
 COPY prestartup_base.sh /prestartup/
 
+# Disable reyns user over ssh to allow exposing ssh on a public IP (i.e. for the Desktop service)
+RUN echo "DenyUsers reyns" >> /etc/ssh/sshd_config
+
+# Add metabox rsa key
+COPY keys/metauser.rsa.pub /etc/ssh/metauser.rsa.pub
+RUN sudo mkdir -p /home/metauser/.ssh && ln -s /etc/ssh/metauser.rsa.pub /home/metauser/.ssh/authorized_keys && chown -R metauser:metauser /home/metauser/.ssh
+
 # Note 1: If you use the Samba service, you need to achange/dd the users even there.
 # Note 2: If you use the Vnc desktop service, you need to change/add the users even there.
 # Note 3: Vnc desktop still do not support multiuser.
