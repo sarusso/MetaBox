@@ -44,11 +44,6 @@ This version is based on Ubuntu 14.04
     $ metabox/shell service_name (user automatically set to metauser)
 
 
-## Ssh
-
-    $ metabox/ssh service_name (user automatically set to metauser)
-
-
 ## Stop
 
     $ metabox/clean all
@@ -65,14 +60,14 @@ Default user is metauser. Default password for Web and Files services: "metapass
 
 For Web (with "web" service running):
 
-    $ metabox/ssh web
+    $ metabox/shell web
     $ cd /data && sudo htpasswd -bc htpasswd metauser YOUR_NEW_PASS
     $ exit
     $ metabox/rerun web
 
 For Files (with "files" service running):
 
-    $ metabox/ssh files
+    $ metabox/shell files
     $ sudo bash -c "(echo YOUR_NEW_PASS; echo YOUR_NEW_PASS) | smbpasswd -a metauser"
     $ exit
     $ metabox/rerun files
