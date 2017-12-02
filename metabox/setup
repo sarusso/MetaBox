@@ -34,7 +34,7 @@ fi
 
 echo ""
 
-REYNS_COMMIT_HASH=93bde367518ce77490e1f1d7850afdbad8cf562d
+REYNS_COMMIT_HASH=90dba12bcb143d171448c67d064ffae102ffa178
 
 if [ ! -d Reyns ]; then
     echo "Installing Reyns..."
