@@ -30,9 +30,9 @@ esac
 
 
 if [[ $# -eq 0 ]] ; then
-    git checkout master && git pull
+    git pull
 else
-    git -c advice.detachedHead=false checkout $@
+    git -c advice.detachedHead=false checkout $@ && git pull
 fi
 
 

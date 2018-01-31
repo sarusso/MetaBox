@@ -3,8 +3,8 @@
 # Get current folder name
 FOLDER=${PWD##*/}
 
-echo "This command is depreacted. Use metabox/shell instead."
-exit 1
+#echo "This command is depreacted. Use metabox/shell instead."
+#exit 1
 
 # Check we are in the right place
 if [ ! -f ./.JRCyC8oOiO.metabox ]; then
