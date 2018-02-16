@@ -1,10 +1,10 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
-Name=Set Mouse Wheel Speed
+Name=Add Display Resolution
 Comment=
-Exec=/usr/bin/set_mouse_wheel_speed
-Icon=input-mouse
+Exec=add_display_resolution_gui
+Icon=video-display
 Path=
 Terminal=false
 StartupNotify=false

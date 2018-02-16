@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Set Display Resolution
+Comment=
+Exec=xfce4-display-settings
+Icon=video-display
+Path=
+Terminal=false
+StartupNotify=false

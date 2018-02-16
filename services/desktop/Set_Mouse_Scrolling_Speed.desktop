@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Set Mouse Scrolling Speed
+Comment=
+Exec=/usr/bin/set_mouse_scrolling_speed
+Icon=input-mouse
+Path=
+Terminal=false
+StartupNotify=false

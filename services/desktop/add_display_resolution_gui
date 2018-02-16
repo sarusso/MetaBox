@@ -1,0 +1,3 @@
+#!/bin/bash
+NEWRES=$(zenity --entry --title="Add new resolution" --text="New Resolution (i.e. 1440x900):")
+add_display_resolution $NEWRES

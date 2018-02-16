@@ -1,0 +1,26 @@
+#!/usr/bin/env python
+
+import sys
+import os
+
+sh = os.system
+
+# I don't think the refresh rate matters for VNC modes.
+REFRESH_RATE = 60
+DISPLAY_NAME = 'VNC-0'
+
+if len(sys.argv) != 2:
+    print('Usage: {} <geometry>'.format(sys.argv[0]))
+    sys.exit(0)
+
+geometry = sys.argv[1]
+(horz, vert) = (int(x) for x in geometry.split('x'))
+pixel_freq = (horz * vert * REFRESH_RATE) / 1.0e6
+
+sh('xrandr --newmode {} {} {} 0 0 {} {} 0 0 {}'.format(
+    geometry, pixel_freq, horz, horz, vert, vert))
+sh('xrandr --addmode {} {}'.format(DISPLAY_NAME, geometry))
+
+# Local Variables:
+# mode: python
+# End:
