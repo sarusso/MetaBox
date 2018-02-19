@@ -20,6 +20,9 @@ COPY Add_Display_Resolution.desktop /home/metauser/Desktop/
 # Make all the above scripts executable
 RUN chmod 755 /usr/bin/add_display_resolution && chmod 755 /usr/bin/add_display_resolution_gui && chmod 755 /usr/bin/set_mouse_scrolling_speed 
 
+# Correct ownership of Desktop shortcuts
+RUN chown -R metauser:metauser /home/metauser/Desktop/
+
 # Shorter bash prompt
 RUN echo "PS1=\"\u@MetaBox:\W $ \"" >> /home/metauser/.bashrc
 
